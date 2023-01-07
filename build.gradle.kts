@@ -120,8 +120,8 @@ indra {
         minimumToolchain(17)
     }
 
-    publishSnapshotsTo("xpdustry", "https://maven.xpdustry.fr/snapshots")
-    publishReleasesTo("xpdustry", "https://maven.xpdustry.fr/releases")
+    // publishSnapshotsTo("xpdustry", "https://maven.xpdustry.fr/snapshots")
+    // publishReleasesTo("xpdustry", "https://maven.xpdustry.fr/releases")
 
     // The license of your project, kyori has already functions for the most common licenses
     // such as gpl3OnlyLicense() for GPLv3, apache2License() for Apache 2.0, etc.

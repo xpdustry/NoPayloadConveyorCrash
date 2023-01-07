@@ -1,9 +1,9 @@
 /*
- * This file is part of TemplatePlugin. A template for faster plugin development.
+ * This file is part of NoPayloadConveyorCrashPlugin. No more payload conveyor crashes.
  *
  * MIT License
  *
- * Copyright (c) 2021 Xpdustry
+ * Copyright (c) 2023 Xpdustry
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +23,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.xpdustry.template;
+package fr.xpdustry.patches;
 
 import arc.util.CommandHandler;
 import arc.util.Log;
 import mindustry.mod.Plugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-/**
- * Template plugin.
- */
-@SuppressWarnings("unused")
-public class TemplatePlugin extends Plugin {
+public final class NoPayloadConveyorCrashPlugin extends Plugin {
 
     /**
      * This method is called when game initializes.

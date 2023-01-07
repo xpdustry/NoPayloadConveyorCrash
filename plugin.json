@@ -1,13 +1,13 @@
 {
-  "name": "template",
-  "displayName": "TemplatePlugin",
+  "name": "no-payload-conveyor-crash",
+  "displayName": "NoPayloadConveyorCrashPlugin",
   "author": "Xpdustry",
-  "description": "A template for faster plugin development.",
-  "version": "3.4.1",
+  "description": "No more payload conveyor crashes.",
+  "version": "1.0.0",
   "minGameVersion": "140",
   "hidden": true,
   "java": true,
-  "main": "fr.xpdustry.template.TemplatePlugin",
+  "main": "fr.xpdustry.patches.NoPayloadConveyorCrashPlugin",
   "repo": "Xpdustry/TemplatePlugin",
   "dependencies": []
 }
