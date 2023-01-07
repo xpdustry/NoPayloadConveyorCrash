@@ -26,7 +26,8 @@ version = metadata.version
 description = metadata.description
 
 toxopid {
-    compileVersion.set("v" + metadata.minGameVersion)
+    compileVersion.set("v140.4")
+    runtimeVersion.set("v140.4")
     platforms.set(setOf(ModPlatform.HEADLESS))
 }
 
