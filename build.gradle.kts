@@ -109,6 +109,10 @@ tasks.build {
     dependsOn(tasks.shadowJar)
 }
 
+tasks.runMindustryClient {
+    mods.setFrom()
+}
+
 signing {
     val signingKey: String? by project
     val signingPassword: String? by project
