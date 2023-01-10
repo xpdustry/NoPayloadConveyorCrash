@@ -25,7 +25,11 @@
  */
 package fr.xpdustry.patches;
 
+import arc.Events;
+import arc.math.geom.Point2;
+import arc.struct.IntSet;
 import arc.struct.ObjectMap;
+import arc.util.Log;
 import arc.util.Strings;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -33,13 +37,19 @@ import mindustry.Vars;
 import mindustry.content.Blocks;
 import mindustry.content.Items;
 import mindustry.ctype.MappableContent;
+import mindustry.game.EventType;
+import mindustry.game.EventType.Trigger;
 import mindustry.mod.Plugin;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
+import mindustry.world.blocks.logic.LogicBlock.LogicBuild;
+import mindustry.world.blocks.payloads.PayloadConveyor.PayloadConveyorBuild;
 
+@SuppressWarnings("unused")
 public final class NoPayloadConveyorCrashPlugin extends Plugin {
 
+    private final IntSet processorIndex = new IntSet();
     private final ObjectMap<String, MappableContent>[] contentNameMap;
 
     @SuppressWarnings("unchecked")
@@ -82,6 +92,8 @@ public final class NoPayloadConveyorCrashPlugin extends Plugin {
             block.researchCostMultiplier = 4f;
             block.underBullets = true;
         });
+
+        this.setupLogicUnlink();
     }
 
     private <T extends Block> void replaceBlock(
@@ -115,5 +127,41 @@ public final class NoPayloadConveyorCrashPlugin extends Plugin {
         } catch (final ReflectiveOperationException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void setupLogicUnlink() {
+        Events.on(EventType.WorldLoadEvent.class, event -> {
+            processorIndex.clear();
+        });
+
+        Events.on(EventType.TilePreChangeEvent.class, event -> {
+            processorIndex.remove(event.tile.pos());
+        });
+
+        Events.on(EventType.TileChangeEvent.class, event -> {
+            if (event.tile.build instanceof LogicBuild building) {
+                processorIndex.add(building.pos());
+            }
+        });
+
+        Events.run(Trigger.update, () -> {
+            final var iterator = processorIndex.iterator();
+            while (iterator.hasNext) {
+                final var position = iterator.next();
+                if (!(Vars.world.build(position) instanceof final LogicBuild processor)) {
+                    Log.warn(
+                            "[NoPayloadConveyorCrashPlugin] Logic processor at @ is not a LogicBuild instance!",
+                            Point2.unpack(position));
+                    iterator.remove();
+                    continue;
+                }
+                for (final var link : processor.links) {
+                    // de-configure the link if it is a payload conveyor
+                    if (link.active && Vars.world.build(link.x, link.y) instanceof PayloadConveyorBuild) {
+                        processor.configure(Point2.pack(link.x, link.y));
+                    }
+                }
+            }
+        });
     }
 }
