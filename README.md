@@ -1,7 +1,8 @@
 # NoPayloadConveyorCrashPlugin
 
 [![Build status](https://github.com/Xpdustry/TemplatePlugin/actions/workflows/build.yml/badge.svg?branch=master&event=push)](https://github.com/Xpdustry/TemplatePlugin/actions/workflows/build.yml)
-[![Mindustry 7.0 ](https://img.shields.io/badge/Mindustry-7.0-ffd37f)](https://github.com/Anuken/Mindustry/releases)
+[![Mindustry 7.0](https://img.shields.io/badge/Mindustry-7.0-ffd37f)](https://github.com/Anuken/Mindustry/releases)
+[![Downloads](https://img.shields.io/github/downloads/Xpdustry/NoPayloadConveyorCrash/total?color=purple)](https://github.com/Xpdustry/NoPayloadConveyorCrash/releases)
 
 This plugin prevents players from crashing a server by constantly changing the direction of a payload conveyor.
 It accomplishes this by :
