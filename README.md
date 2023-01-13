@@ -12,6 +12,8 @@ It accomplishes this by :
 
 - Preventing players from binding logic processors to payload conveyors.
 
+> Warning: Mindustry v141 fixed the bug, this plugin is no longer useful.
+
 ## Installation
 
 ### Requirements
