@@ -1,4 +1,4 @@
-# NoPayloadConveyorCrashPlugin
+# NoPayloadConveyorCrash
 
 [![Build status](https://github.com/Xpdustry/TemplatePlugin/actions/workflows/build.yml/badge.svg?branch=master&event=push)](https://github.com/Xpdustry/TemplatePlugin/actions/workflows/build.yml)
 [![Mindustry 7.0](https://img.shields.io/badge/Mindustry-7.0-ffd37f)](https://github.com/Anuken/Mindustry/releases)
@@ -12,7 +12,7 @@ It accomplishes this by :
 
 - Preventing players from binding logic processors to payload conveyors.
 
-> Warning: Mindustry v141 fixed the bug, this plugin is no longer useful.
+> Warning: Mindustry v141 fixed the bug, this plugin is no longer necessary.
 
 ## Installation
 
